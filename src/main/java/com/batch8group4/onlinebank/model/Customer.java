@@ -71,6 +71,7 @@ public class Customer {
 	public String getCustomerId() {
 		
 		return customerId;
+		//hii
 	}
 	public void setCustomerId(String customerId) {
 		this.customerId = custIdString;
