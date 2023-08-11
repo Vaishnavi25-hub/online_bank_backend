@@ -17,7 +17,7 @@ public class Account {
 		@Column(name = "account_number")
 		private String accountNumber;
 		
-		
+		@Column(name = "customer_id")
 		//make this foreign key
 		private String customerId;
 		@Column(name = "account_balance")
@@ -42,4 +42,3 @@ public class Account {
 		}
 		
 	}
-
