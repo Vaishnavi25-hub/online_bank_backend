@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.batch8group4.onlinebank.model.Account;
-import com.batch8group4.onlinebank.model.Customer;
 import com.batch8group4.onlinebank.service.AccountService;
-import com.batch8group4.onlinebank.service.CustomerService;
+
 
 @RestController
 @RequestMapping("/api")
