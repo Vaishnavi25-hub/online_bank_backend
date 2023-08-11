@@ -20,24 +20,20 @@ import com.batch8group4.onlinebank.model.Customer;
 import com.batch8group4.onlinebank.service.CustomerService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/customer")
 public class CustomerController {
 	@Autowired
 	CustomerService customerService;
 	
-	@GetMapping("/customer")
-	public List<Customer> getAllCustomersResponse ()
-	{
-		return customerService.getAllCustomers();
-	}
 	
-	@GetMapping("/customer/{id}")
+	
+	@GetMapping("/{id}")
 	public Optional<Customer> getCustomerByIdResponse(@PathVariable String id)
 	{
 		return customerService.getCustomerById(id);
 	}
 	
-	@PostMapping("/open/account")
+	@PostMapping("/apply")
 	public ResponseEntity<Customer> postCustomerRequest( @RequestBody Customer customer)
 	{
 		Customer createdCustomer=customerService.createCustomer(customer);
