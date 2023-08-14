@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 @Table(name= "Account")
 public class Account {
 		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
+
 		@Column(name = "account_number")
 		private String accountNumber;
 		
@@ -21,7 +21,7 @@ public class Account {
 		//make this foreign key
 		private String customerId;
 		@Column(name = "account_balance")
-		private String accountBalance;
+		private Long accountBalance;
 		public String getAccountNumber() {
 			return accountNumber;
 		}
@@ -34,10 +34,10 @@ public class Account {
 		public void setCustomerId(String customerId) {
 			this.customerId = customerId;
 		}
-		public String getAccountBalance() {
+		public Long getAccountBalance() {
 			return accountBalance;
 		}
-		public void setAccountBalance(String accountBalance) {
+		public void setAccountBalance(Long accountBalance) {
 			this.accountBalance = accountBalance;
 		}
 		

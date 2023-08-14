@@ -1,16 +1,26 @@
 package com.batch8group4.onlinebank.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.batch8group4.onlinebank.model.Account;
 import com.batch8group4.onlinebank.model.Admin;
+import com.batch8group4.onlinebank.model.Customer;
+import com.batch8group4.onlinebank.repo.AccountRepo;
 import com.batch8group4.onlinebank.repo.AdminRepo;
 @Service
 public class AdminService {
 	@Autowired
 	AdminRepo adminRepo;
+	@Autowired 
+	AccountService accountService;
+	@Autowired 
+	AccountRepo accountRepo;
+	
 
 	public List<Admin> getAllAdmins() {
 		// TODO Auto-generated method stub
@@ -38,5 +48,7 @@ public class AdminService {
 		}
 		
 	}
+	
+	
 
 }

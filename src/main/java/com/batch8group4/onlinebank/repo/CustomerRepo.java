@@ -7,5 +7,6 @@ import com.batch8group4.onlinebank.model.Customer;
 
 @Repository
 public interface CustomerRepo extends JpaRepository<Customer,String> {
+	
 
 }

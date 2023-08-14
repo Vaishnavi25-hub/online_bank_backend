@@ -10,13 +10,12 @@ import javax.persistence.Transient;
 @Entity
 @Table(name="Customer")
 public class Customer {
-	@Transient
-	private Long number = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
-	@Transient
-	private String custIdString=number.toString();
+
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	private Long serialNumber;
 	@Id
 	@Column(nullable=false, insertable=false, updatable=false)
-	private String customerId=custIdString;
+	private String customerId;
 	@Column(nullable=false, insertable=false, updatable=false)
 	private String title;
 	@Column(nullable=false, insertable=false, updatable=false)
@@ -66,7 +65,7 @@ public class Customer {
 	@Column(nullable=false, insertable=false, updatable=false)
 	private String debitCardBool;
 	@Column(nullable=false, insertable=false, updatable=false)
-	private int approvedBool=0;
+	private int approvedBool;
 	@Column(nullable=false, insertable=false, updatable=false)
 	public String getCustomerId() {
 		
@@ -74,7 +73,7 @@ public class Customer {
 		//hii
 	}
 	public void setCustomerId(String customerId) {
-		this.customerId = custIdString;
+		this.customerId = customerId;
 	}
 	public String getTitle() {
 		return title;
@@ -221,32 +220,28 @@ public class Customer {
 	public void setGrossAnnualIncome(Long grossAnnualIncome) {
 		this.grossAnnualIncome = grossAnnualIncome;
 	}
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", title=" + title + ", firstName=" + firstName + ", middleName="
-				+ middleName + ", lastName=" + lastName + ", fatherName=" + fatherName + ", mobileNumber="
-				+ mobileNumber + ", emailId=" + emailId + ", adharNumber=" + adharNumber + ", dob=" + dob
-				+ ", residentialLine1=" + residentialLine1 + ", residentialLine2=" + residentialLine2
-				+ ", residentialLandmark=" + residentialLandmark + ", residentialState=" + residentialState
-				+ ", residentialPincode=" + residentialPincode + ", permanentLine1=" + permanentLine1
-				+ ", permanentLine2=" + permanentLine2 + ", permanentLandmark=" + permanentLandmark
-				+ ", permanentState=" + permanentState + ", permanentPincode=" + permanentPincode + ", occupationType="
-				+ occupationType + ", sourceOfIncome=" + sourceOfIncome + ", grossAnnualIncome=" + grossAnnualIncome
-				+ ", netBankingBool=" + netBankingBool + ", debitCardBool=" + debitCardBool + ", getCustomerId()="
-				+ getCustomerId() + ", getTitle()=" + getTitle() + ", getFirstName()=" + getFirstName()
-				+ ", getMiddleName()=" + getMiddleName() + ", getLastName()=" + getLastName() + ", getFatherName()="
-				+ getFatherName() + ", getMobileNumber()=" + getMobileNumber() + ", getEmailId()=" + getEmailId()
-				+ ", getAdharNumber()=" + getAdharNumber() + ", getDob()=" + getDob() + 
-				 ", getNetBankingBool()=" + getNetBankingBool() + ", getDebitCardBool()=" + getDebitCardBool()
-				+ ", getResidentialLine1()=" + getResidentialLine1() + ", getResidentialLine2()="
-				+ getResidentialLine2() + ", getResidentialLandmark()=" + getResidentialLandmark()
-				+ ", getResidentialState()=" + getResidentialState() + ", getResidentialPincode()="
-				+ getResidentialPincode() + ", getPermanentLine1()=" + getPermanentLine1() + ", getPermanentLine2()="
-				+ getPermanentLine2() + ", getPermanentLandmark()=" + getPermanentLandmark() + ", getPermanentState()="
-				+ getPermanentState() + ", getpermanentPincode()=" + getpermanentPincode() + ", getOccupationType()="
-				+ getOccupationType() + ", getSourceOfIncome()=" + getSourceOfIncome() + ", getGrossAnnualIncome()="
-				+ getGrossAnnualIncome() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+	public String getPermanentPincode() {
+		return permanentPincode;
+	}
+	public void setPermanentPincode(String permanentPincode) {
+		this.permanentPincode = permanentPincode;
+	}
+	public int getApprovedBool() {
+		return approvedBool;
+	}
+	public void setApprovedBool(int approvedBool) {
+		this.approvedBool = approvedBool;
 	}
 	
-}
+	
+		
+	}
+
+//	public Long getSerialNumber() {
+//		return serialNumber;
+//	}
+//	public void setSerialNumber(Long serialNumber) {
+//		this.serialNumber = serialNumber;
+//	}
+	
+

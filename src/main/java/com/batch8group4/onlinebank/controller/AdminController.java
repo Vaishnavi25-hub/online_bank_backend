@@ -67,6 +67,13 @@ public class AdminController {
 
 	}
 	
+	@PostMapping("/approve/account/{customer_id}")
+	public String approveAccountControl(@PathVariable String customer_id)
+	{
+		String returnmsgString=accountService.approveAccount(customer_id);
+
+		return returnmsgString;
+	}
 	@GetMapping("/get/accounts")
 	public List<Account> getAllAccountsResponse ()
 	{
