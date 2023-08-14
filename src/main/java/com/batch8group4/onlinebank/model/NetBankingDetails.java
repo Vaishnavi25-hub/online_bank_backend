@@ -2,24 +2,21 @@ package com.batch8group4.onlinebank.model;
 
 import javax.persistence.Column;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.Table;
+@Entity
+@Table (name="NetBanking")
 public class NetBankingDetails {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "user_id")
-	private String userId;
-	@Column(name = "user_name")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long netBankingId;
 	private String userName;
-	@Id
-	//set this as foreign key
+
 	private String accountNumber;
-	@Column(name = "longinPassword")
-	private String loginPasssword;
-	@Column(name = "transaction_id")
-	private String transactionId;
+	private String password;
 	public String getUserName() {
 		return userName;
 	}
@@ -32,17 +29,18 @@ public class NetBankingDetails {
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	public String getLoginPasssword() {
-		return loginPasssword;
+	
+	public String getPassword() {
+		return password;
 	}
-	public void setLoginPasssword(String loginPasssword) {
-		this.loginPasssword = loginPasssword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getTransactionId() {
-		return transactionId;
+	public Long getNetBankingId() {
+		return netBankingId;
 	}
-	public void setTransactionId(String transactionId) {
-		this.transactionId = transactionId;
+	public void setNetBankingId(Long netBankingId) {
+		this.netBankingId = netBankingId;
 	}
 	
 }

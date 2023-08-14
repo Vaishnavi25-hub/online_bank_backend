@@ -10,25 +10,18 @@ import jakarta.persistence.Id;
 
 public class Transaction {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "transaction_id")
-	private String transactionId;
-	@Column(name = "sender_accound_number")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long transactionId;
 	private String senderAccountNumber;
-	@Column(name = "receiver_account_number")
 	private String receiverAccountNumber;
-	@Column(name = "amount")
 	private String amount;
-	@Column(name = "date")
 	private LocalDateTime dateTime;
-	@Column(name = "type")
 	private String type;
-	@Column(name = "remarks")
 	private String remarks;
-	public String getTransactionId() {
+	public Long getTransactionId() {
 		return transactionId;
 	}
-	public void setTransactionId(String transactionId) {
+	public void setTransactionId(Long transactionId) {
 		this.transactionId = transactionId;
 	}
 	public String getSenderAccountNumber() {

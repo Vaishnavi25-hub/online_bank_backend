@@ -31,17 +31,17 @@ public class Customer {
 	private String mobileNumber;
 	@Column(nullable=false, insertable=false, updatable=false)
 	private String emailId;
-	@Column(nullable=false, insertable=false, updatable=false)
+	@Column(nullable=true, insertable=false, updatable=false)
 	private String adharNumber;
 	@Column(nullable=false, insertable=false, updatable=false)
-	private Date dob;
+	private String dob;
 	@Column(nullable=false, insertable=false, updatable=false)
 	private String residentialLine1;
 	@Column(nullable=false, insertable=false, updatable=false)
 	private String residentialLine2;
 	@Column(nullable=false, insertable=false, updatable=false)
 	private String residentialLandmark;
-	@Column(nullable=false, insertable=false, updatable=false)
+	@Column(nullable=true, insertable=false, updatable=false)
 	private String residentialState;
 	@Column(nullable=false, insertable=false, updatable=false)
 	private String residentialPincode;
@@ -51,7 +51,7 @@ public class Customer {
 	private String permanentLine2;
 	@Column(nullable=false, insertable=false, updatable=false)
 	private String permanentLandmark;
-	@Column(nullable=false, insertable=false, updatable=false)
+	@Column(nullable=true, insertable=false, updatable=false)
 	private String permanentState;
 	@Column(nullable=false, insertable=false, updatable=false)
 	private String permanentPincode;
@@ -124,10 +124,10 @@ public class Customer {
 	public void setAdharNumber(String adharNumber) {
 		this.adharNumber = adharNumber;
 	}
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 	

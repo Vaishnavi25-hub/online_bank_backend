@@ -27,12 +27,6 @@ public class CustomerController {
 	
 	
 	
-	@GetMapping("/{id}")
-	public Optional<Customer> getCustomerByIdResponse(@PathVariable String id)
-	{
-		return customerService.getCustomerById(id);
-	}
-	
 	@PostMapping("/apply")
 	public ResponseEntity<Customer> postCustomerRequest( @RequestBody Customer customer)
 	{
@@ -40,12 +34,6 @@ public class CustomerController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdCustomer);
 	}
 	
-	@DeleteMapping("/delete/{id}")
-	public void deleteCustomerRequest( @PathVariable String id)
-	{
-		customerService.deleteCustomerById(id);
-
-	}
 	
 	//put mapping for changing the phone number
 	@PutMapping("/change/phone/number/{id}/mobile-number")
