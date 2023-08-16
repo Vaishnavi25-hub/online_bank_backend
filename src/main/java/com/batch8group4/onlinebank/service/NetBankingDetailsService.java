@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.batch8group4.onlinebank.dto.NetBankingLogin;
 import com.batch8group4.onlinebank.model.NetBankingDetails;
 import com.batch8group4.onlinebank.repo.NetBankingDetailsRepo;
 
@@ -39,5 +40,12 @@ public class NetBankingDetailsService {
 	{
 		return netBankingDetailsRepo.findAll();
 	}
+
+//	public String login(NetBankingLogin netBankingLogin) {
+//		String username=netBankingLogin.getUserName();
+//		String password=netBankingLogin.getPassword()	;
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }

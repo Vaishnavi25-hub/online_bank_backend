@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.batch8group4.onlinebank.dto.NetBankingLogin;
 import com.batch8group4.onlinebank.model.NetBankingDetails;
 import com.batch8group4.onlinebank.service.NetBankingDetailsService;
 
@@ -34,5 +35,13 @@ public class NetBankingDetailsController {
 		return netBankingDetailsService.getAllNetBankingUsers();
 	}
 	
+//	@PostMapping("/login")
+//	public String logInRequest(@RequestBody NetBankingLogin netBankingLogin)
+//	{
+//		String msg= netBankingDetailsService.login(netBankingLogin)
+//			return msg;
+//		
+//	}
+	}
 
-}
+
