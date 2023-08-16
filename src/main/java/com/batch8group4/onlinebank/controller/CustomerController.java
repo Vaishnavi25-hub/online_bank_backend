@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.batch8group4.onlinebank.dto.AddBeneficiary;
+import com.batch8group4.onlinebank.model.Beneficiary;
 import com.batch8group4.onlinebank.model.Customer;
+import com.batch8group4.onlinebank.service.BeneficiaryService;
 import com.batch8group4.onlinebank.service.CustomerService;
 
 @RestController
@@ -24,7 +27,8 @@ import com.batch8group4.onlinebank.service.CustomerService;
 public class CustomerController {
 	@Autowired
 	CustomerService customerService;
-	
+	@Autowired
+	private BeneficiaryService beneficiaryService;
 	
 	
 	@PostMapping("/apply")
@@ -50,6 +54,11 @@ public class CustomerController {
 		}
 	}
 	
-
+	@PostMapping("/add/beneficiary/{username}")
+	public String addBeneficiaryRequest(@RequestBody AddBeneficiary addBeneficiary ,@PathVariable String username)
+	{
+		String msg= beneficiaryService.addBeneficiary(addBeneficiary,username);
+		return msg;
+	}
 
 }

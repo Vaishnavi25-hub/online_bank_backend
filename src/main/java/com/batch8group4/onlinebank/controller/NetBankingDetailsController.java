@@ -38,7 +38,7 @@ public class NetBankingDetailsController {
 //	@PostMapping("/login")
 //	public String logInRequest(@RequestBody NetBankingLogin netBankingLogin)
 //	{
-//		String msg= netBankingDetailsService.login(netBankingLogin)
+//		String msg= netBankingDetailsService.login(netBankingLogin);
 //			return msg;
 //		
 //	}

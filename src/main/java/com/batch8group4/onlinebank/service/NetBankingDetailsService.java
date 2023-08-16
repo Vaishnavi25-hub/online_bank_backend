@@ -22,9 +22,9 @@ public class NetBankingDetailsService {
 		netBankingDetails.setAccountNumber(accountNumber);
 //		netBankingDetails.setUserName(netBankingDetails.getUserName());
 //		netbanking.setPassword(netBankingDetails.getPassword());
-		SimpleDateFormat dateFormat = new SimpleDateFormat("ssmmHH");
-		String dateString = dateFormat.format(new Date());
-		netBankingDetails.setNetBankingId(dateString);
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("ssmmHH");
+//		String dateString = dateFormat.format(new Date());
+//		netBankingDetails.setNetBankingId(dateString);
 		try
 		{
 		netBankingDetailsRepo.save(netBankingDetails);}
@@ -33,13 +33,15 @@ public class NetBankingDetailsService {
 		return "This account is already registered for net banking";
 		}
 		// TODO Auto-generated method stub
-		return "Account Number "+ accountNumber + "is successfully registered for net banking with net banking ID " + dateString; 
+		return "Account Number "+ accountNumber + "is successfully registered for net banking"; 
 	}
 	
 	public List<NetBankingDetails> getAllNetBankingUsers()
 	{
 		return netBankingDetailsRepo.findAll();
 	}
+
+	
 
 //	public String login(NetBankingLogin netBankingLogin) {
 //		String username=netBankingLogin.getUserName();

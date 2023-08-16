@@ -11,9 +11,11 @@ import jakarta.persistence.Table;
 @Table (name="NetBanking")
 public class NetBankingDetails {
 	@Id
-	private String netBankingId;
-	private String accountNumber;
 	private String userName;
+	
+	@Column(unique=true)
+	private String accountNumber;
+	
 
 	
 	private String password;
@@ -36,12 +38,7 @@ public class NetBankingDetails {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getNetBankingId() {
-		return netBankingId;
-	}
-	public void setNetBankingId(String netBankingId) {
-		this.netBankingId = netBankingId;
-	}
+	
 	
 	
 }

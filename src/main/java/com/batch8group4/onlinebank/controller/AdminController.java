@@ -54,7 +54,7 @@ public class AdminController {
 		String returnMessage=adminService.adminLogin(admin);
 		return returnMessage;
 	}
-	@GetMapping("/{id}")
+	@GetMapping("/customer/{id}")
 	public Optional<Customer> getCustomerByIdResponse(@PathVariable String id)
 	{
 		return customerService.getCustomerById(id);

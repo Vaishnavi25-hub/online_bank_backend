@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class Account {
 		@Id
 
-		@Column(name = "account_number")
+		
 		private String accountNumber;
 		
 		@Column(name = "customer_id")

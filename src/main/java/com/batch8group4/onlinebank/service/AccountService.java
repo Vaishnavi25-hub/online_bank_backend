@@ -37,7 +37,7 @@ public class AccountService {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHssmm");
 		String dateString = dateFormat.format(new Date());
 		account.setAccountNumber(dateString);
-		account.setAccountBalance(0l);
+		account.setAccountBalance(500l);
 		accountRepo.save(account);
 		return "Account successfully created with account Number " + dateString + "!";
 		 

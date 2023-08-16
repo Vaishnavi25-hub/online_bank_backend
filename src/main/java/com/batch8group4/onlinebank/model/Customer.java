@@ -22,7 +22,7 @@ public class Customer {
 	private String firstName;
 	@Column(nullable=false, insertable=false, updatable=false)
 	private String middleName;
-	@Column(nullable=false, insertable=false, updatable=false)
+	@Column( insertable=false, updatable=false)
 	private String lastName;
 	@Column(nullable=false, insertable=false, updatable=false)
 	private String fatherName;
