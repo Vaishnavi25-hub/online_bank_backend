@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,7 @@ import com.batch8group4.onlinebank.service.AccountService;
 import com.batch8group4.onlinebank.service.AdminService;
 import com.batch8group4.onlinebank.service.CustomerService;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
@@ -87,10 +88,17 @@ public class AdminController {
 	}
 
 	@GetMapping("/get/unapproved/customers")
-	public List<Customer> getUnapprovedCUstomerRequest()
+	public List<Customer> getUnapprovedCustomerRequest()
 	{
 		List<Customer> response= adminService.getUnapprovedCustomerService();
 		return response;
+	}
+	
+	@DeleteMapping("/reject/customer/{customer_id}")
+	public String rejectCustomerRequest(@PathVariable String customer_id)
+	{
+		String msg=adminService.rejectCustomer(customer_id);
+		return msg;
 	}
 	
 	

@@ -32,7 +32,6 @@ public class BeneficiaryService {
 		}
 		return "Beneficiary's account number invalid!";
 		
-		
 	}
 	
 	

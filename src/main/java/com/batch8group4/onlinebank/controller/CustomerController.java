@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,7 @@ import com.batch8group4.onlinebank.model.Beneficiary;
 import com.batch8group4.onlinebank.model.Customer;
 import com.batch8group4.onlinebank.service.BeneficiaryService;
 import com.batch8group4.onlinebank.service.CustomerService;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api/customer")
 public class CustomerController {

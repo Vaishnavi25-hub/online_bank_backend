@@ -15,14 +15,14 @@ import com.batch8group4.onlinebank.model.NetBankingDetails;
 import com.batch8group4.onlinebank.service.NetBankingDetailsService;
 
 @RestController
-@RequestMapping("/netbanking")
+@RequestMapping("/api/netbanking")
 public class NetBankingDetailsController {
 	 
 	@Autowired
 	private NetBankingDetailsService netBankingDetailsService;
 	
 	
-	@PostMapping("/create/account/{accountNumber}")
+	@PostMapping("/create/{accountNumber}")
 	public String createNetBankingRequest(@PathVariable String accountNumber, @RequestBody NetBankingDetails netBankingDetails)
 	{
 		String msg=netBankingDetailsService.registerForNetBanking(accountNumber, netBankingDetails);
@@ -35,13 +35,13 @@ public class NetBankingDetailsController {
 		return netBankingDetailsService.getAllNetBankingUsers();
 	}
 	
-//	@PostMapping("/login")
-//	public String logInRequest(@RequestBody NetBankingLogin netBankingLogin)
-//	{
-//		String msg= netBankingDetailsService.login(netBankingLogin);
-//			return msg;
-//		
-//	}
+	@PostMapping("/login")
+	public String logInRequest(@RequestBody NetBankingLogin netBankingLogin)
+	{
+		String msg= netBankingDetailsService.login(netBankingLogin);
+			return msg;
+		
+	}
 	}
 
 

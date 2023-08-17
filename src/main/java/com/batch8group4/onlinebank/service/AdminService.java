@@ -58,6 +58,11 @@ public class AdminService {
 		return unapprovedCust;
 	}
 
+	public String rejectCustomer(String customer_id) {
+		customerRepo.deleteById(customer_id);
+		return "deleted";
+	}
+
 	
 	
 

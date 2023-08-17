@@ -43,11 +43,21 @@ public class NetBankingDetailsService {
 
 	
 
-//	public String login(NetBankingLogin netBankingLogin) {
-//		String username=netBankingLogin.getUserName();
-//		String password=netBankingLogin.getPassword()	;
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	public String login(NetBankingLogin netBankingLogin) {
+		String username=netBankingLogin.getUserName();
+		String password=netBankingLogin.getPassword()	;
+		// TODO Auto-generated method stub
+		String daoPassword=netBankingDetailsRepo.getPasswordByUsername(username);
+		if (daoPassword == null || daoPassword.isEmpty()) {
+                        return "Username does not exist. Register for the net banking firts";
+        } else if (password.equals(daoPassword)) {
+            
+            return "Login successful.";
+        } else {
+           
+            return "Invalid password.";
+        }
+		
+	}
 
 }
