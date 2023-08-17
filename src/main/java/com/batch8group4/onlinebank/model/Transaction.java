@@ -13,9 +13,9 @@ public class Transaction {
 	
 	@Id
 	private String referenceId;
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="fromAccount",referencedColumnName="accountNumber")
-	private Account account;
+//	@ManyToOne(cascade=CascadeType.ALL)
+//	@JoinColumn(name="fromAccount",referencedColumnName="accountNumber")
+	private String account;
 	private String methodOfPayment;
 	private Long amount;
 	public String getReferenceId() {
@@ -38,8 +38,12 @@ public class Transaction {
 		this.amount = amount;
 	}
 
-	
-	
-	
 
+	public String getAccount() {
+		return account;
+	}
+
+	public void setAccount(String account) {
+		this.account = account;
+	}
 }

@@ -235,13 +235,6 @@ public class Customer {
 		this.permanentState = permanentState;
 	}
 
-	public String getpermanentPincode() {
-		return permanentPincode;
-	}
-
-	public void setpermanentPincode(String permanentPincode) {
-		this.permanentPincode = permanentPincode;
-	}
 
 	public String getOccupationType() {
 		return occupationType;

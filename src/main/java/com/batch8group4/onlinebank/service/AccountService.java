@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.batch8group4.onlinebank.repo.CustomerRepo;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.batch8group4.onlinebank.model.Account;
@@ -30,19 +31,19 @@ public class AccountService {
 		
 		return accountRepo.findById(accountNumber);
 	}
-
-	public String approveAccount(String custId)
+	@Transactional
+	public String approveAccount(String customer_id)
 	{
 		Account account= new Account(); 
 //		customerRepo.setApproveBool();
 //		customer.setApprovedBool(1);
-		account.setCustomerId(custId);
+		account.setCustomerId(customer_id);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHssmm");
 		String dateString = dateFormat.format(new Date());
 		account.setAccountNumber(dateString);
 		account.setAccountBalance(500l);
 		accountRepo.save(account);
-		customerRepo.setApprovedBoolById(custId);
+		customerRepo.setApprovedBoolById(customer_id);
 		return "Account successfully created with account Number " + dateString + "!";
 		 
 			
