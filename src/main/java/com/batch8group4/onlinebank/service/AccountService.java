@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import com.batch8group4.onlinebank.repo.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.batch8group4.onlinebank.model.Account;
@@ -16,6 +17,8 @@ public class AccountService {
 
 	@Autowired
 	private AccountRepo accountRepo;
+	@Autowired
+	private CustomerRepo customerRepo;
 	
 	public List<Account> getAllAccounts()
 	{
@@ -39,6 +42,7 @@ public class AccountService {
 		account.setAccountNumber(dateString);
 		account.setAccountBalance(500l);
 		accountRepo.save(account);
+		customerRepo.setApprovedBoolById(custId);
 		return "Account successfully created with account Number " + dateString + "!";
 		 
 			

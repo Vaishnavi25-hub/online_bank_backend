@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import com.batch8group4.onlinebank.repo.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ public class AdminService {
 	AccountService accountService;
 	@Autowired 
 	AccountRepo accountRepo;
+	@Autowired
+	CustomerRepo customerRepo;
 	
 
 	public List<Admin> getAllAdmins() {
@@ -48,6 +51,13 @@ public class AdminService {
 		}
 		
 	}
+
+	public List<Customer> getUnapprovedCustomerService()
+	{
+		List<Customer> unapprovedCust=customerRepo.getUnapprovedCustomers();
+		return unapprovedCust;
+	}
+
 	
 	
 

@@ -16,12 +16,12 @@ import com.batch8group4.onlinebank.service.TransactionService;
 public class TransactionController {
 	@Autowired
 	private TransactionService transactionService;
-	@PostMapping("/transfer/{fromAccountNumber}")
-	public String transferFundRequest(@RequestBody TransactionDto transactionDto, @PathVariable String fromAccountNumber)
-	{
-		String msg=transactionService.transferFundService(transactionDto, fromAccountNumber);
-		return msg;
-	}
+//	@PostMapping("/transfer/{fromAccountNumber}")
+//	public String transferFundRequest(@RequestBody TransactionDto transactionDto, @PathVariable String fromAccountNumber)
+//	{
+//		String msg=transactionService.transferFundService(transactionDto, fromAccountNumber);
+//		return msg;
+//	}
 
 	
 }

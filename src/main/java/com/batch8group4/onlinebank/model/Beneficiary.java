@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name="Beneficiary")
@@ -14,9 +13,9 @@ public class Beneficiary {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@NotNull
+	@Column(nullable=false)
 	private String beneficiaryName;
-	@NotNull
+	@Column(nullable=false)
 	private String beneficiaryAccountNumber;
 	@Column(nullable=true)
 	private String nickName;

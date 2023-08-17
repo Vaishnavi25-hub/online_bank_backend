@@ -14,12 +14,12 @@ public class TransactionService {
 	private TransactionRepo transactionRepo;
 	@Autowired
 	private AccountRepo accountRepo;
-	public String transferFundService(TransactionDto transactionDto) {
-		Transaction transaction=new Transaction();
-		transaction.setAmount(transactionDto.getAmount());
-		transaction.setFromAccount(null);
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	public String transferFundService(TransactionDto transactionDto) {
+//		Transaction transaction=new Transaction();
+//		transaction.setAmount(transactionDto.getAmount());
+//		transaction.setFromAccount(null);
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }

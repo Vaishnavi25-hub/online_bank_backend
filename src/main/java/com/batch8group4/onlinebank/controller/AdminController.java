@@ -42,7 +42,7 @@ public class AdminController {
 		Admin createdAdmin=adminService.createAdmin(admin);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdAdmin);
 	}
-	@GetMapping("/customer")
+	@GetMapping("/get/customers")
 	public List<Customer> getAllCustomersResponse ()
 	{
 		return customerService.getAllCustomers();
@@ -84,6 +84,13 @@ public class AdminController {
 	public Optional<Account> getAccountByAccountNumberResponse(@PathVariable String accountNumber)
 	{
 		return accountService.getAccountByAccountNumber(accountNumber);
+	}
+
+	@GetMapping("/get/unapproved/customers")
+	public List<Customer> getUnapprovedCUstomerRequest()
+	{
+		List<Customer> response= adminService.getUnapprovedCustomerService();
+		return response;
 	}
 	
 	
