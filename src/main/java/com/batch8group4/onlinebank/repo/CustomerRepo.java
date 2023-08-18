@@ -18,4 +18,5 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
 
     @Query(value = "SELECT * FROM CUSTOMER WHERE APPROVED_BOOL=0",nativeQuery = true)
     List<Customer> getUnapprovedCustomers();
+    
 }

@@ -3,9 +3,14 @@ package com.batch8group4.onlinebank.service;
 import java.util.List;
 import java.util.Optional;
 import java.text.ParseException; import java.text.SimpleDateFormat; import java.util.Date;
+
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
+import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.batch8group4.onlinebank.dto.CustomerApplyForm;
 import com.batch8group4.onlinebank.model.Customer;
 import com.batch8group4.onlinebank.repo.CustomerRepo;
 
@@ -13,45 +18,41 @@ import com.batch8group4.onlinebank.repo.CustomerRepo;
 public class CustomerService {
 
 	@Autowired
+	private ModelMapper mapper;
+	
+	@Autowired
 	private CustomerRepo customerRepo;
 	
 	public List<Customer> getAllCustomers()
 	{
-		return customerRepo.findAll();
+		return customerRepo.getUnapprovedCustomers();
 	}
 
 	public Optional<Customer> getCustomerById(String id) {
-		// TODO Auto-generated method stub
-		
 		return customerRepo.findById(id);
 	}
 
 	public Customer createCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-//		Long appendId=customer.getSerialNumber();
-//		String appendString=appendId.toString();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMHHmmss");
 		String dateString = dateFormat.format(new Date());
-//		String custId=dateString+appendString;
-		customer.setCustomerId(dateString);
 		customer.setApprovedBool(0);
+		customer.setCustomerId(dateString);
+		System.out.println("\n\n\n\n\nget : "+customer.getAdharNumber());
 		return customerRepo.save(customer);
-			}
+	}
 	
-	public void deleteCustomerById(String id)
-	{
+	public Customer createCustomer(CustomerApplyForm customerApplyForm) {
+		Customer customer = new Customer();
+		customer = mapper.map(customerApplyForm, Customer.class);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMHHmmss");
+		String dateString = dateFormat.format(new Date());
+		customer.setApprovedBool(0);
+		customer.setCustomerId(dateString);
+		return customerRepo.save(customer);
+	}
+	
+	public void deleteCustomerById(String id){
 		customerRepo.deleteById(id);
 	}
 	
-	public Customer changePhoneNumber(String id,String newMobileNumber)
-	{
-		Optional<Customer> optionalCustomer=customerRepo.findById(id);
-		if (optionalCustomer.isPresent()) {
-			Customer customer=optionalCustomer.get();
-			customer.setMobileNumber(newMobileNumber);
-			return customerRepo.save(customer);
-			
-		}
-		return null;
-	}
 }

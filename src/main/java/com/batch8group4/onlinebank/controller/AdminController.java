@@ -70,6 +70,10 @@ public class AdminController {
 	@PostMapping("/approve/account/{customer_id}")
 	public String approveAccountControl(@PathVariable String customer_id)
 	{
+		Optional<Customer> customer = customerService.getCustomerById(customer_id);
+		if (customer.get().getApprovedBool()==1) {
+			return ("Account already approved!");
+		}
 		String returnmsgString=accountService.approveAccount(customer_id);
 
 		return returnmsgString;

@@ -1,22 +1,35 @@
 package com.batch8group4.onlinebank.service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.batch8group4.onlinebank.dto.NetBankingLogin;
 import com.batch8group4.onlinebank.model.NetBankingDetails;
 import com.batch8group4.onlinebank.repo.NetBankingDetailsRepo;
 
-@Service
 
-public class NetBankingDetailsService {
-	@Autowired
+
+@Service
+public class NetBankingDetailsService implements UserDetailsService {
+	
+    @Autowired
 	private NetBankingDetailsRepo netBankingDetailsRepo;
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        NetBankingDetails user = netBankingDetailsRepo.findByUserName(username);
+        System.out.println("Username is " + user.getUserName());
+        return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), new ArrayList<>());
+    }
+    
 	public String registerForNetBanking(String accountNumber, NetBankingDetails netBankingDetails) {
 		
 		netBankingDetails.setAccountNumber(accountNumber);
@@ -40,9 +53,6 @@ public class NetBankingDetailsService {
 	{
 		return netBankingDetailsRepo.findAll();
 	}
-
-	
-
 //	public String login(NetBankingLogin netBankingLogin) {
 //		String username=netBankingLogin.getUserName();
 //		String password=netBankingLogin.getPassword()	;

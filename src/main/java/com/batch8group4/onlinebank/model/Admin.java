@@ -1,7 +1,9 @@
 package com.batch8group4.onlinebank.model;
-import java.util.*;
-
-import jakarta.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="Admin")

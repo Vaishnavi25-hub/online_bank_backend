@@ -1,29 +1,26 @@
-package com.batch8group4.onlinebank.model;
+package com.batch8group4.onlinebank.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity
-@Table(name = "Customer")
-public class Customer {
-	//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	private Long serialNumber;
-	@Id
-	private String customerId;
+public class CustomerApplyForm {
+	@Size(max=4)
 	private String title;
 	private String firstName;
 	private String middleName;
 	private String lastName;
 	private String fatherName;
-	@Column(nullable=false, unique=true)
+	@Pattern(regexp="(^[0-9]{10}$)")
 	private String mobileNumber;
-	@Column(nullable=false, unique=true)
+	@Email
 	private String emailId;
-	@Column(nullable=false, unique=true)
+	@Pattern(regexp="(^[0-9]{12}$)")
 	private String adharNumber;
+//	@DateTimeFormat(pattern="yyyy-mm-dd")
 	private String dob;
 	private String residentialLine1;
 	private String residentialLine2;
@@ -37,240 +34,166 @@ public class Customer {
 	private String permanentPincode;
 	private String occupationType;
 	private String sourceOfIncome;
+	@Min(value=100_000)
 	private Long grossAnnualIncome;
 	private String netBankingBool;
 	private String debitCardBool;
-	private int approvedBool;
-
-	public String getCustomerId() {
-
-		return customerId;
+	@Override
+	public String toString() {
+		return "CustomerApplyForm [title=" + title + ", firstName=" + firstName + ", middleName=" + middleName
+				+ ", lastName=" + lastName + ", fatherName=" + fatherName + ", mobileNumber=" + mobileNumber
+				+ ", emailId=" + emailId + ", adharNumber=" + adharNumber + ", dob=" + dob + ", residentialLine1="
+				+ residentialLine1 + ", residentialLine2=" + residentialLine2 + ", residentialLandmark="
+				+ residentialLandmark + ", residentialState=" + residentialState + ", residentialPincode="
+				+ residentialPincode + ", permanentLine1=" + permanentLine1 + ", permanentLine2=" + permanentLine2
+				+ ", permanentLandmark=" + permanentLandmark + ", permanentState=" + permanentState
+				+ ", permanentPincode=" + permanentPincode + ", occupationType=" + occupationType + ", sourceOfIncome="
+				+ sourceOfIncome + ", grossAnnualIncome=" + grossAnnualIncome + ", netBankingBool=" + netBankingBool
+				+ ", debitCardBool=" + debitCardBool + "]";
 	}
-
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
-	}
-
 	public String getTitle() {
 		return title;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	public String getFirstName() {
 		return firstName;
 	}
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
 	public String getMiddleName() {
 		return middleName;
 	}
-
 	public void setMiddleName(String middleName) {
 		this.middleName = middleName;
 	}
-
 	public String getLastName() {
 		return lastName;
 	}
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
 	public String getFatherName() {
 		return fatherName;
 	}
-
 	public void setFatherName(String fatherName) {
 		this.fatherName = fatherName;
 	}
-
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
-
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-
 	public String getEmailId() {
 		return emailId;
 	}
-
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-
 	public String getAdharNumber() {
 		return adharNumber;
 	}
-
 	public void setAdharNumber(String adharNumber) {
 		this.adharNumber = adharNumber;
 	}
-
 	public String getDob() {
 		return dob;
 	}
-
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
-
-	public String getNetBankingBool() {
-		return netBankingBool;
-	}
-
-	public void setNetBankingBool(String netBankingBool) {
-		this.netBankingBool = netBankingBool;
-	}
-
-	public String getDebitCardBool() {
-		return debitCardBool;
-	}
-
-	public void setDebitCardBool(String debitCardBool) {
-		this.debitCardBool = debitCardBool;
-	}
-
 	public String getResidentialLine1() {
 		return residentialLine1;
 	}
-
 	public void setResidentialLine1(String residentialLine1) {
 		this.residentialLine1 = residentialLine1;
 	}
-
 	public String getResidentialLine2() {
 		return residentialLine2;
 	}
-
 	public void setResidentialLine2(String residentialLine2) {
 		this.residentialLine2 = residentialLine2;
 	}
-
 	public String getResidentialLandmark() {
 		return residentialLandmark;
 	}
-
 	public void setResidentialLandmark(String residentialLandmark) {
 		this.residentialLandmark = residentialLandmark;
 	}
-
 	public String getResidentialState() {
 		return residentialState;
 	}
-
 	public void setResidentialState(String residentialState) {
 		this.residentialState = residentialState;
 	}
-
 	public String getResidentialPincode() {
 		return residentialPincode;
 	}
-
 	public void setResidentialPincode(String residentialPincode) {
 		this.residentialPincode = residentialPincode;
 	}
-
 	public String getPermanentLine1() {
 		return permanentLine1;
 	}
-
 	public void setPermanentLine1(String permanentLine1) {
 		this.permanentLine1 = permanentLine1;
 	}
-
 	public String getPermanentLine2() {
 		return permanentLine2;
 	}
-
 	public void setPermanentLine2(String permanentLine2) {
 		this.permanentLine2 = permanentLine2;
 	}
-
 	public String getPermanentLandmark() {
 		return permanentLandmark;
 	}
-
 	public void setPermanentLandmark(String permanentLandmark) {
 		this.permanentLandmark = permanentLandmark;
 	}
-
 	public String getPermanentState() {
 		return permanentState;
 	}
-
 	public void setPermanentState(String permanentState) {
 		this.permanentState = permanentState;
 	}
-
-
-	public String getOccupationType() {
-		return occupationType;
-	}
-
-	public void setOccupationType(String occupationType) {
-		this.occupationType = occupationType;
-	}
-
-	public String getSourceOfIncome() {
-		return sourceOfIncome;
-	}
-
-	public void setSourceOfIncome(String sourceOfIncome) {
-		this.sourceOfIncome = sourceOfIncome;
-	}
-
-	public Long getGrossAnnualIncome() {
-		return grossAnnualIncome;
-	}
-
-	public void setGrossAnnualIncome(Long grossAnnualIncome) {
-		this.grossAnnualIncome = grossAnnualIncome;
-	}
-
 	public String getPermanentPincode() {
 		return permanentPincode;
 	}
-
 	public void setPermanentPincode(String permanentPincode) {
 		this.permanentPincode = permanentPincode;
 	}
-
-	public int getApprovedBool() {
-		return approvedBool;
+	public String getOccupationType() {
+		return occupationType;
 	}
-
-	public void setApprovedBool(int approvedBool) {
-		this.approvedBool = approvedBool;
+	public void setOccupationType(String occupationType) {
+		this.occupationType = occupationType;
 	}
-
-	@Override
-	public String toString() {
-		return "Customer [title=" + title + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", fatherName=" + fatherName + ", mobileNumber=" + mobileNumber + ", emailId=" + emailId
-				+ ", adharNumber=" + adharNumber + ", dob=" + dob + ", residentialLine1=" + residentialLine1
-				+ ", residentialLine2=" + residentialLine2 + ", residentialLandmark=" + residentialLandmark
-				+ ", residentialState=" + residentialState + ", residentialPincode=" + residentialPincode
-				+ ", permanentLine1=" + permanentLine1 + ", permanentLine2=" + permanentLine2 + ", permanentLandmark="
-				+ permanentLandmark + ", permanentState=" + permanentState + ", permanentPincode=" + permanentPincode
-				+ ", occupationType=" + occupationType + ", sourceOfIncome=" + sourceOfIncome + ", grossAnnualIncome="
-				+ grossAnnualIncome + ", netBankingBool=" + netBankingBool + ", debitCardBool=" + debitCardBool + "]";
+	public String getSourceOfIncome() {
+		return sourceOfIncome;
 	}
-}
-
-//	public Long getSerialNumber() {
-//		return serialNumber;
-//	}
-//	public void setSerialNumber(Long serialNumber) {
-//		this.serialNumber = serialNumber;
-//	}
+	public void setSourceOfIncome(String sourceOfIncome) {
+		this.sourceOfIncome = sourceOfIncome;
+	}
+	public Long getGrossAnnualIncome() {
+		return grossAnnualIncome;
+	}
+	public void setGrossAnnualIncome(Long grossAnnualIncome) {
+		this.grossAnnualIncome = grossAnnualIncome;
+	}
+	public String getNetBankingBool() {
+		return netBankingBool;
+	}
+	public void setNetBankingBool(String netBankingBool) {
+		this.netBankingBool = netBankingBool;
+	}
+	public String getDebitCardBool() {
+		return debitCardBool;
+	}
+	public void setDebitCardBool(String debitCardBool) {
+		this.debitCardBool = debitCardBool;
+	}
 	
-
+}

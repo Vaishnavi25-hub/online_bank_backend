@@ -5,13 +5,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import com.batch8group4.onlinebank.repo.CustomerRepo;
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.batch8group4.onlinebank.model.Account;
-import com.batch8group4.onlinebank.model.Customer;
 import com.batch8group4.onlinebank.repo.AccountRepo;
+import com.batch8group4.onlinebank.repo.CustomerRepo;
 
 @Service
 public class AccountService {
@@ -35,8 +36,6 @@ public class AccountService {
 	public String approveAccount(String customer_id)
 	{
 		Account account= new Account(); 
-//		customerRepo.setApproveBool();
-//		customer.setApprovedBool(1);
 		account.setCustomerId(customer_id);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHssmm");
 		String dateString = dateFormat.format(new Date());

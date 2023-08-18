@@ -11,5 +11,7 @@ public interface NetBankingDetailsRepo extends JpaRepository<NetBankingDetails,S
 
 	@Query(value="SELECT ACCOUNT_NUMBER FROM NET_BANKING WHERE ACCOUNT_NUMBER=:beneficiaryAccountNumber",nativeQuery=true)
 	boolean toAccountExists(String beneficiaryAccountNumber);
+	
+	NetBankingDetails findByUserName(String username);
 
 }
